@@ -7,8 +7,6 @@ import org.openqa.selenium.WebElement;
 
 public class LocationPopupPage extends BasicPage {
 
-	JavascriptExecutor js = (JavascriptExecutor) driver;
-
 	public LocationPopupPage(WebDriver driver, JavascriptExecutor js) {
 		super(driver, js);
 	}
