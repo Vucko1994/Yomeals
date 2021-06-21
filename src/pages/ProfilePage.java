@@ -90,7 +90,7 @@ public class ProfilePage extends BasicPage {
 	}
 
 	public void editAllInfo(String firstName, String lastName, String address, String phone,
-			String zipCode, String country, String state, String city) {
+			String zipCode, String country, String state, String city) throws InterruptedException {
 		getFirstName().clear();
 		getLastName().clear();
 		getAddress().clear();
@@ -104,7 +104,9 @@ public class ProfilePage extends BasicPage {
 		getZipCode().sendKeys(zipCode);
 		
 		selectCountry(country);
+		Thread.sleep(500);
 		selectState(state);
+		Thread.sleep(500);
 		selectCity(city);
 		
 		getSaveBtn().click();
