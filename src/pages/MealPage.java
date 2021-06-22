@@ -21,7 +21,7 @@ public class MealPage extends BasicPage {
 	}
 	
 	public WebElement getAddToFavoriteBtn() {
-		return driver.findElement(By.id("//div[@class=\"product-detail-image\"]/a"));
+		return driver.findElement(By.xpath("//*[@class=\"product-detail-image\"]/a"));
 	}
 
 	public void addMealToCart(String quantity) {
