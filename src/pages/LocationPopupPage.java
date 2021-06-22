@@ -40,7 +40,6 @@ public class LocationPopupPage extends BasicPage {
 	}
 
 	public void setLocation(String locationName) {
-		getSelectLocation().click();
 
 		getKeyword().click();
 
