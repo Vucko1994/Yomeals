@@ -15,7 +15,7 @@ public class SearchResultPage extends BasicPage {
 	}
 
 	public List<WebElement> getAllResults() {
-		return driver.findElements(By.xpath("//*[@class='product-name']/a"));
+		return driver.findElements(By.xpath("//div[@class=\"product-name\"]/a"));
 	}
 
 	public ArrayList<String> getAllResultsNames() {
