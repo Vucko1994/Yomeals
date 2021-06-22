@@ -19,12 +19,20 @@ public class MealPage extends BasicPage {
 	public WebElement getAddToCartBtn() {
 		return driver.findElement(By.xpath("//a[@class=\"btn btn--primary btn--large js-proceedtoAddInCart \"]"));
 	}
+	
+	public WebElement getAddToFavoriteBtn() {
+		return driver.findElement(By.id("//div[@class=\"product-detail-image\"]/a"));
+	}
 
 	public void addMealToCart(String quantity) {
 		getQuantity().sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 		getQuantity().sendKeys(quantity);
 
 		getAddToCartBtn().click();
+	}
+	
+	public void addMealToFavorite() {
+		getAddToFavoriteBtn().click();
 	}
 
 }
