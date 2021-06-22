@@ -27,7 +27,7 @@ import pages.ProfilePage;
 import pages.SearchResultPage;
 
 public abstract class BasicTest {
-	
+
 	protected String baseUrl = "http://demo.yo-meals.com/";
 	protected String userEmail = "customer@dummyid.com";
 	protected String password = "12345678a";
@@ -42,16 +42,17 @@ public abstract class BasicTest {
 	protected CartSummaryPage cartSummaryPage;
 	protected SearchResultPage searchResultPage;
 	protected JavascriptExecutor js = (JavascriptExecutor) driver;
-	
+
 	@BeforeMethod
 	public void setup() {
 		System.setProperty("webdriver.chrome.driver", "driver-lib\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-		
-		basicPage = new BasicPage(driver, js) {};
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+
+		basicPage = new BasicPage(driver, js) {
+		};
 		locationPopupPage = new LocationPopupPage(driver, js);
 		loginPage = new LoginPage(driver, js);
 		notificationSistemPage = new NotificationSistemPage(driver, js);
@@ -62,18 +63,18 @@ public abstract class BasicTest {
 		searchResultPage = new SearchResultPage(driver, js);
 
 	}
-	
+
 	@AfterMethod
 	public void screenshotAndCleanUp(ITestResult testResult) throws IOException, InterruptedException {
 		if (testResult.getStatus() == ITestResult.FAILURE) {
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");
 			LocalDateTime now = LocalDateTime.now();
 			String dt = dtf.format(now);
-			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(scrFile, new File("./Screenshots/"+ dt + ".jpg"));
+			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(scrFile, new File("./Screenshots/" + dt + ".jpg"));
 		}
 		Thread.sleep(700);
 		driver.quit();
 	}
-		
+
 }
