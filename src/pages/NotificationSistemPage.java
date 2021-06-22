@@ -14,11 +14,12 @@ public class NotificationSistemPage extends BasicPage {
 	}
 
 	public WebElement getMessage() {
-		return driver.findElement(By.xpath("//*[contains(@class, 'alert--success')]"));
+		return driver.findElement(By.xpath(
+				"//*[contains(@class, 'alert--success') or contains(@class, 'alert--danger')][contains(@style,'display: block')]"));
 	}
 
 	public String messageText() {
-		return driver.findElement(By.xpath("//div[@class=\"div_msg\"]/ul/li")).getText();
+		return getMessage().getText();
 	}
 
 	public void waitMessageToDisappear() {
