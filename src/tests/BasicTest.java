@@ -51,8 +51,7 @@ public abstract class BasicTest {
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
 
-		basicPage = new BasicPage(driver, js) {
-		};
+
 		locationPopupPage = new LocationPopupPage(driver, js);
 		loginPage = new LoginPage(driver, js);
 		notificationSistemPage = new NotificationSistemPage(driver, js);
